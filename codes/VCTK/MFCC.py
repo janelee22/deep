@@ -180,12 +180,12 @@ def VCTKdataload(wavPath,num,sample_rate,resample_rate):
 wavPath = 'C:\\Users\\student\\Desktop\\Team2\\VCTK-Corpus\\VCTK-Corpus\\wav48'
 
 # x_train,x_test,y_train,y_test = VCTKdataload(wavPath,20,48000,100)
-x_train,x_test,y_train,y_test = VCTKdataload(wavPath,10,48000,48000)
+x_train,x_test,y_train,y_test = VCTKdataload(wavPath,10,48000,24000)
 
 """#GRU"""
 
 
-num=10
+num=41
 sample_rate=48000
 resample_rate=24000
 max_length=100
@@ -218,7 +218,7 @@ model.add(GRU(20, activation='relu', return_sequences=False))
 # model.add(GRU(20, return_sequences=False))
 
 # Output layer with softmax activation
-model.add(Dense(10, activation='softmax')) #식별할 class의 수
+model.add(Dense(41, activation='softmax')) #식별할 class의 수
 
 # optimizer = tf.keras.optimizers.legacy.RMSprop(learning_rate=0.01, epsilon=None, decay=0.9)
 optimizer = tf.keras.optimizers.Adam(learning_rate=0.003)
@@ -227,7 +227,7 @@ model.compile(loss='CategoricalCrossentropy', optimizer=optimizer, metrics=['acc
 
 
 # Train the model
-model.fit(x_train, y_train, batch_size=128, epochs=100, validation_data=(x_test, y_test))
+model.fit(x_train, y_train, batch_size=128, epochs=1000, validation_data=(x_test, y_test))
 
 model.summary()
 
