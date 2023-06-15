@@ -180,7 +180,7 @@ def VCTKdataload(wavPath,num,sample_rate,resample_rate):
 wavPath = 'C:\\Users\\student\\Desktop\\Team2\\VCTK-Corpus\\VCTK-Corpus\\wav48'
 
 # x_train,x_test,y_train,y_test = VCTKdataload(wavPath,20,48000,100)
-x_train,x_test,y_train,y_test = VCTKdataload(wavPath,10,48000,24000)
+x_train,x_test,y_train,y_test = VCTKdataload(wavPath,41,48000,24000)
 
 """#GRU"""
 
