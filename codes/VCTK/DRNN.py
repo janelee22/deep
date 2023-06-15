@@ -141,7 +141,7 @@ def VCTKdataload(wavPath,num,sample_rate,resample_rate):
 
 wavPath = '/content/drive/MyDrive/wav48'
 
-x_train,x_test,y_train,y_test = VCTKdataload(wavPath,5,48000,48000)
+x_train,x_test,y_train,y_test = VCTKdataload(wavPath,41,48000,24000)
 
 """# DRNN"""
 
@@ -263,7 +263,7 @@ from tensorflow.keras.losses import CategoricalCrossentropy
 from tensorflow.keras.optimizers import Adam,RMSprop
 
 
-n_classes = 5
+n_classes = 41
 dilations = [32,64,128,256,512,1024]
 hidden_dims = [50]*6
 cell_type = 'GRU'
@@ -273,6 +273,6 @@ model = DRNNclassification(n_classes,2,dilations, hidden_dims, cell_type)
 optimizer = tf.keras.optimizers.Adam(learning_rate=0.003)
 model.compile(loss='CategoricalCrossentropy', optimizer=optimizer, metrics=['accuracy'])
 
-model.fit(x_train, y_train, batch_size=128, epochs=100, validation_data=(x_test, y_test))
+model.fit(x_train, y_train, batch_size=128, epochs=1000, validation_data=(x_test, y_test))
 
 model.evaluate(x_test,y_test,verbose=1)
