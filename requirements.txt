@@ -1,3 +1,6 @@
+# IDE로 VSCODE와 colab 이용
+# 하단은 VSCODE에 대한 requirements
+
 cuda==11.7 
 Tensorflow GPU==2.10
 
