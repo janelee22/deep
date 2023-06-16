@@ -8,7 +8,8 @@
 
 
 #성능 검증
-#4.1 Copy memory problem
+#4.1 Copy memory problem  
+
 #4.2  Pixel-by-Pixel MNIST
 
 #성능 검증 결과 요약
